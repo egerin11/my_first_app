@@ -11,18 +11,29 @@ class SettingsScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           const SliverAppBar(
-            expandedHeight: 150,
+            expandedHeight: 300,
             floating: true,
-            pinned: true,
+            pinned: false,
             centerTitle: true,
-            title: _AvatarWidget(),
-            flexibleSpace: Column(
+            flexibleSpace: Stack(
               children: [
-                _UserNameWidget(),
-                SizedBox(height: 10),
-                _UserPhoneWidget(),
-                SizedBox(height: 10),
-                _UserNickNameWidget(),
+                Positioned.fill(
+                  top: 60,
+                  bottom: 60,
+                  child: _AvatarWidget(),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 20),
+                    _UserNameWidget(),
+                    SizedBox(height: 10),
+                    _UserPhoneWidget(),
+                    SizedBox(height: 10),
+                    _UserNickNameWidget(),
+                  ],
+                ),
               ],
             ),
           ),
@@ -191,7 +202,7 @@ class _AvatarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const CircleAvatar(
         radius: 60,
-        foregroundColor: Colors.white,
+        foregroundColor: Color.fromARGB(255, 199, 4, 4),
         backgroundImage: AssetImage("asset_image/learn_app.jpg"),
       );
 }
