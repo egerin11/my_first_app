@@ -11,21 +11,21 @@ class SettingsScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           const SliverAppBar(
-            expandedHeight: 200,
+            expandedHeight: 300,
             floating: true,
             pinned: false,
             centerTitle: true,
             flexibleSpace: Stack(
               children: [
                 Positioned.fill(
-                  top: 70,
-                  bottom: 70,
+                  top: 40,
+                  bottom: 40,
                   child: _AvatarWidget(),
                 ),
                 Positioned(
-                  top: 160,
+                  top: 290,
                   left: 110,
-                  bottom: 0,git 
+                  bottom: 0,
                   child: Center(
                     child: Expanded(
                       child: Row(
@@ -68,22 +68,22 @@ class SettingsScreen extends StatelessWidget {
                   items: getSecondMenu(context),
                 ),
                 const SizedBox(height: 30),
-                // MenuWidget(
-                //   items: getSecondMenu(context),
-                // ),
-                // const SizedBox(height: 30),
-                // MenuWidget(
-                //   items: getSecondMenu(context),
-                // ),
-                // const SizedBox(height: 30),
-                // MenuWidget(
-                //   items: getSecondMenu(context),
-                // ),
-                // const SizedBox(height: 30),
-                // MenuWidget(
-                //   items: getSecondMenu(context),
-                // ),
-                // const SizedBox(height: 30),
+                MenuWidget(
+                  items: getSecondMenu(context),
+                ),
+                const SizedBox(height: 30),
+                MenuWidget(
+                  items: getSecondMenu(context),
+                ),
+                const SizedBox(height: 30),
+                MenuWidget(
+                  items: getSecondMenu(context),
+                ),
+                const SizedBox(height: 30),
+                MenuWidget(
+                  items: getSecondMenu(context),
+                ),
+                const SizedBox(height: 30),
               ],
             ),
           ])),
