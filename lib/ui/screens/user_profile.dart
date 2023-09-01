@@ -70,29 +70,25 @@ class SettingsScreen extends StatelessWidget {
             leading: const Icon(Icons.favorite),
             title: const Text('Избранное'),
             onTap: () {
-              Navigator.of(context)
-                  .pushNamed(NavigationRouts.placeholderScreen);
+              Navigator.of(context).pushNamed(NavigationRouts.favorites);
             }),
         MenuWidgetItem(
             leading: const Icon(Icons.call),
             title: const Text('Звонки'),
             onTap: () {
-              Navigator.of(context)
-                  .pushNamed(NavigationRouts.placeholderScreen);
+              Navigator.of(context).pushNamed(NavigationRouts.calls);
             }),
         MenuWidgetItem(
             leading: const Icon(Icons.computer),
             title: const Text('Устройства'),
             onTap: () {
-              Navigator.of(context)
-                  .pushNamed(NavigationRouts.placeholderScreen);
+              Navigator.of(context).pushNamed(NavigationRouts.devices);
             }),
         MenuWidgetItem(
             leading: const Icon(Icons.folder),
             title: const Text('Папка с чатами'),
             onTap: () {
-              Navigator.of(context)
-                  .pushNamed(NavigationRouts.placeholderScreen);
+              Navigator.of(context).pushNamed(NavigationRouts.folderWithChats);
             }),
       ];
 
