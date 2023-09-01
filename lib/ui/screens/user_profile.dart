@@ -22,18 +22,34 @@ class SettingsScreen extends StatelessWidget {
                   bottom: 60,
                   child: _AvatarWidget(),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 20),
-                    _UserNameWidget(),
-                    SizedBox(height: 10),
-                    _UserPhoneWidget(),
-                    SizedBox(height: 10),
-                    _UserNickNameWidget(),
-                  ],
+                Positioned(
+                  top: 290,
+                  left: 110,
+                  bottom: 0,
+                  child: Center(
+                    child: Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          _UserNameWidget(),
+                          SizedBox(width: 20),
+                          _UserPhoneWidget(),
+                          SizedBox(width: 20),
+                          _UserNickNameWidget(),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
+                // Column(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: [
+                //     SizedBox(height: 20),
+                //     _UserNameWidget(),
+
+                //   ],
+                // ),
               ],
             ),
           ),
