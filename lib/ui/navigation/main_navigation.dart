@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_app/ui/screens/chats_creen.dart';
 import 'package:learn_app/ui/screens/placeholder_screen.dart';
 import 'package:learn_app/ui/screens/user_profile.dart';
 
@@ -15,7 +16,7 @@ class MainNavigation {
   Map<String, WidgetBuilder> routes = {
     NavigationRouts.settingsScreen: (context) => const SettingsScreen(),
     NavigationRouts.placeholderScreen: (context) => const PlaceholderScreen(),
-    NavigationRouts.favorites: (context) => const FavoritesSreen(),
+    NavigationRouts.favorites: (context) => const ChatScreen(),
     NavigationRouts.calls: (context) => const CallsSreen(),
     NavigationRouts.devices: (context) => const DevicesSreen(),
     NavigationRouts.folderWithChats: (context) => const FolderWithChatsSreen(),
