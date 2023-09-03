@@ -14,7 +14,7 @@ class FavoritesSreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Заполнительный экран')),
+      appBar: AppBar(title: const Text('Избранное')),
       body: const Center(
         child: Text('Это заполнительный экран. Здесь может быть ваш контент.'),
       ),

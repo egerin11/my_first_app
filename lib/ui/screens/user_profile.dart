@@ -7,87 +7,64 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          const SliverAppBar(
-            expandedHeight: 300,
-            floating: true,
-            pinned: false,
-            centerTitle: true,
-            flexibleSpace: Stack(
-              children: [
-                Positioned.fill(
-                  top: 40,
-                  bottom: 40,
-                  child: _AvatarWidget(),
-                ),
-                Positioned(
-                  top: 290,
-                  left: 110,
-                  bottom: 0,
-                  child: Center(
-                    child: Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+    return SafeArea(
+      child: Scaffold(
+        body: CustomScrollView(
+          slivers: [
+            SliverPersistentHeader(
+              floating: true,
+              pinned: true,
+              delegate: CustomSliverDelegate(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[850]!,
+                  ),
+                  padding: const EdgeInsets.only(left: 50, right: 50),
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(15),
+                        child: _AvatarWidget(),
+                      ),
+                      Spacer(),
+                      Column(
                         children: [
+                          Spacer(),
+                          SizedBox(height: 10),
                           _UserNameWidget(),
-                          SizedBox(width: 20),
+                          SizedBox(height: 10),
                           _UserPhoneWidget(),
-                          SizedBox(width: 20),
+                          SizedBox(height: 10),
                           _UserNickNameWidget(),
+                          Spacer(),
                         ],
                       ),
-                    ),
+                    ],
                   ),
                 ),
-                // Column(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   crossAxisAlignment: CrossAxisAlignment.center,
-                //   children: [
-                //     SizedBox(height: 20),
-                //     _UserNameWidget(),
-
-                //   ],
-                // ),
-              ],
+              ),
             ),
-          ),
-          SliverList(
-              delegate: SliverChildListDelegate([
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 30),
-                MenuWidget(
-                  items: getFirstMenu(context),
-                ),
-                const SizedBox(height: 30),
-                MenuWidget(
-                  items: getSecondMenu(context),
-                ),
-                const SizedBox(height: 30),
-                MenuWidget(
-                  items: getSecondMenu(context),
-                ),
-                const SizedBox(height: 30),
-                MenuWidget(
-                  items: getSecondMenu(context),
-                ),
-                const SizedBox(height: 30),
-                MenuWidget(
-                  items: getSecondMenu(context),
-                ),
-                const SizedBox(height: 30),
-                MenuWidget(
-                  items: getSecondMenu(context),
-                ),
-                const SizedBox(height: 30),
-              ],
-            ),
-          ])),
-        ],
+            SliverList(
+                delegate: SliverChildListDelegate([
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 30),
+                  MenuWidget(
+                    items: getFirstMenu(context),
+                  ),
+                  const SizedBox(height: 30),
+                  MenuWidget(
+                    items: getSecondMenu(context),
+                  ),
+                  const SizedBox(height: 30),
+                ],
+              ),
+            ])),
+          ],
+        ),
       ),
     );
   }
@@ -168,10 +145,31 @@ class _UserNickNameWidget extends StatelessWidget {
     return const Text(
       '@JonFir',
       style: TextStyle(
-        color: Colors.grey,
+        color: Colors.black,
         fontSize: 17,
       ),
     );
+  }
+}
+
+class CustomSliverDelegate extends SliverPersistentHeaderDelegate {
+  final Widget child;
+
+  CustomSliverDelegate({required this.child});
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
+
+  @override
+  double get maxExtent => 200;
+
+  @override
+  double get minExtent => 100;
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return child;
   }
 }
 
@@ -185,7 +183,7 @@ class _UserPhoneWidget extends StatelessWidget {
     return const Text(
       '324234',
       style: TextStyle(
-        color: Colors.grey,
+        color: Colors.black,
         fontSize: 15,
       ),
     );
@@ -217,8 +215,7 @@ class _AvatarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => const CircleAvatar(
-        radius: 60,
-        foregroundColor: Color.fromARGB(255, 199, 4, 4),
+        radius: 80,
         backgroundImage: AssetImage("asset_image/learn_app.jpg"),
       );
 }

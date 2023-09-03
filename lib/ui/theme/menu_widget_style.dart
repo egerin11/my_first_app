@@ -6,7 +6,7 @@ class MenuWidgetStyle extends ThemeExtension<MenuWidgetStyle> {
 
   const MenuWidgetStyle({
     this.borderRadius = const BorderRadius.all(Radius.circular(20)),
-    this.backgroundColor = Colors.black,
+    this.backgroundColor = Colors.grey,
   });
 
   @override
