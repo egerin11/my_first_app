@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -20,30 +22,31 @@ class _ChatScreenState extends State<ChatScreen> {
         toolbarHeight: 50,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 20),
+        padding: const EdgeInsets.only(left: 10),
         child: Column(
           children: [
             const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
-                padding: const EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 150, right: 40),
                 itemCount: _messages.length,
-                itemExtent: 60,
                 itemBuilder: (BuildContext context, int index) {
                   return ClipRRect(
-                    child: Container(
-                      padding: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(40),
-                        border: Border.all(
-                          color: Colors.grey,
-                          width: 2.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(3.2),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(40),
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 3.0,
+                          ),
                         ),
-                      ),
-                      child: ListTile(
-                        title: Text(
-                          _messages[index],
-                          textDirection: TextDirection.ltr,
+                        child: ListTile(
+                          title: Text(
+                            _messages[index],
+                            textDirection: TextDirection.ltr,
+                          ),
                         ),
                       ),
                     ),
@@ -51,7 +54,6 @@ class _ChatScreenState extends State<ChatScreen> {
                 },
               ),
             ),
-            const SizedBox(height: 20),
             _Row(
               textEditingController: _textEditingController,
               onSendMessage: () {
@@ -93,11 +95,11 @@ class _Row extends StatelessWidget {
                   decoration: InputDecoration(
                     hintText: "Enter your message",
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: const BorderSide(
-                        color: Colors.grey,
-                        width: 1.0,
-                      ),
+                      borderRadius: BorderRadius.circular(30),
+                      // borderSide: const BorderSide(
+
+                      //   width: 2.0,
+                      // ),
                     ),
                   ),
                   keyboardType: TextInputType.multiline,
